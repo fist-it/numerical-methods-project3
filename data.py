@@ -1,4 +1,6 @@
 import pandas as pd
+from enum import Enum
+import numpy as np
 
 
 def get_canyon_data():
@@ -40,4 +42,39 @@ def convert_for_precision(df):
 
     df.iloc[:, 0] = new_x
 
-    return df
+    return df, x_max
+
+
+class DataType(Enum):
+    CANYON = 1
+    STABLE = 2
+    UNSTABLE = 3
+    EVEREST = 4
+
+
+def get_parsed_tuples(type: DataType, convert: bool = False, step: int = 1,
+                      random_step: bool = False) -> list[tuple[float]]:
+    df = None
+    match type:
+        case DataType.CANYON:
+            df = get_canyon_data()
+        case DataType.STABLE:
+            df = get_stable_data()
+        case DataType.UNSTABLE:
+            df = get_unstable_data()
+        case DataType.EVEREST:
+            df = get_everest_data()
+        case _:
+            raise ValueError("Invalid data type")
+    if convert:
+        df, x_max = convert_for_precision(df)
+
+    if random_step:
+        steps = np.random.randint(1, step + 1, size=len(df))
+        indices = np.cumsum(steps)
+        indices = indices[indices < len(df)]
+        df = df.iloc[indices, :]
+    elif step > 1:
+        df = df.iloc[::step, :]
+
+    return list(zip(df.iloc[:, 0], df.iloc[:, 1])), x_max if convert else None

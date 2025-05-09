@@ -2,3 +2,6 @@
 __pycache__
 Projekt3_MN.pdf
 data
+
+# matplotlib output directory
+figures/
