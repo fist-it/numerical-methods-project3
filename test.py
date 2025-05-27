@@ -1,26 +1,27 @@
 import data
-from data import DataType
 import matplotlib.pyplot as plt
 
 FIGURE_DIRECTORY = "./figures/"
 
 
 def test_random_step():
-    coordinates: list[tuple[float, float]] = data.get_parsed_tuples(DataType.EVEREST,
-                                                                    convert=True)
+    coordinates: list[tuple[float, float]] = data.get_parsed_tuples(
+        "EVEREST", convert=True
+    )
 
-    coordinates_random_step: list[tuple[float, float]] = data.get_parsed_tuples(DataType.EVEREST,
-                                                                                convert=True,
-                                                                                step=5,
-                                                                                random_step=True)
+    coordinates_random_step: list[tuple[float, float]] = data.get_parsed_tuples(
+        "EVEREST", convert=True, step=5, random_step=True
+    )
 
     x_start = 0.2
     x_end = 0.4
 
     coordinates_slice = [
-        coord for coord in coordinates[0] if x_start <= coord[0] <= x_end]
+        coord for coord in coordinates[0] if x_start <= coord[0] <= x_end
+    ]
     coordinates_random_step_slice = [
-        coord for coord in coordinates_random_step[0] if x_start <= coord[0] <= x_end]
+        coord for coord in coordinates_random_step[0] if x_start <= coord[0] <= x_end
+    ]
 
     x = [coord[0] for coord in coordinates_slice]
     y = [coord[1] for coord in coordinates_slice]
@@ -30,9 +31,10 @@ def test_random_step():
 
     plt.figure(figsize=(10, 6))
 
-    plt.scatter(x, y, label="Original Data", color='blue', alpha=0.2)
-    plt.scatter(x_random_step, y_random_step,
-                label="Random Step Data", color='red', alpha=0.8)
+    plt.scatter(x, y, label="Original Data", color="blue", alpha=0.2)
+    plt.scatter(
+        x_random_step, y_random_step, label="Random Step Data", color="red", alpha=0.8
+    )
     plt.title("Everest")
     plt.xlabel("X")
     plt.ylabel("Y")
@@ -57,14 +59,14 @@ def test_conversion():
 
 
 def test_parsed_tuples():
-    type = DataType.CANYON
+    type = "CANYON"
     analyzed_data = data.get_parsed_tuples(type)
     assert analyzed_data is not None, "Parsed tuples should not be None"
     assert len(analyzed_data) > 0, "Parsed tuples should not be empty"
     print_slice(analyzed_data, 10, 16)
 
     # Test with converted data
-    type = DataType.EVEREST
+    type = "EVEREST"
     analyzed_data = data.get_parsed_tuples(type, convert=True)
     assert analyzed_data is not None, "Parsed tuples should not be None"
     assert len(analyzed_data) > 0, "Parsed tuples should not be empty"
@@ -74,6 +76,7 @@ def test_parsed_tuples():
 def main():
     # create figures/ directory if it doesn't exist
     import os
+
     if not os.path.exists(FIGURE_DIRECTORY):
         os.makedirs(FIGURE_DIRECTORY)
     test_conversion()

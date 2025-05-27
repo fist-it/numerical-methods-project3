@@ -4,29 +4,29 @@ import numpy as np
 
 
 def get_canyon_data():
-    filename = './data/WielkiKanionKolorado.csv'
-    df = pd.read_csv(filename, sep=',')
+    filename = "./data/WielkiKanionKolorado.csv"
+    df = pd.read_csv(filename, sep=",")
 
     return df
 
 
 def get_stable_data():
-    filename = './data/SpacerniakGdansk.csv'
-    df = pd.read_csv(filename, sep=',')
+    filename = "./data/SpacerniakGdansk.csv"
+    df = pd.read_csv(filename, sep=",")
 
     return df
 
 
 def get_unstable_data():
-    filename = './data/rozne_wniesienia.csv'
-    df = pd.read_csv(filename, sep=',')
+    filename = "./data/rozne_wniesienia.csv"
+    df = pd.read_csv(filename, sep=",")
 
     return df
 
 
 def get_everest_data():
-    filename = './data/MountEverest.csv'
-    df = pd.read_csv(filename, sep=',')
+    filename = "./data/MountEverest.csv"
+    df = pd.read_csv(filename, sep=",")
 
     return df
 
@@ -45,24 +45,18 @@ def convert_for_precision(df):
     return df, x_max
 
 
-class DataType(Enum):
-    CANYON = 1
-    STABLE = 2
-    UNSTABLE = 3
-    EVEREST = 4
-
-
-def get_parsed_tuples(type: DataType, convert: bool = False, step: int = 1,
-                      random_step: bool = False) -> list[tuple[float]]:
+def get_parsed_tuples(
+    type: str, convert: bool = False, step: int = 1, random_step: bool = False
+) -> list[tuple[float]]:
     df = None
     match type:
-        case DataType.CANYON:
+        case "CANYON":
             df = get_canyon_data()
-        case DataType.STABLE:
+        case "STABLE":
             df = get_stable_data()
-        case DataType.UNSTABLE:
+        case "UNSTABLE":
             df = get_unstable_data()
-        case DataType.EVEREST:
+        case "EVEREST":
             df = get_everest_data()
         case _:
             raise ValueError("Invalid data type")
