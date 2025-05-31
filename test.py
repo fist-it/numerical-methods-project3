@@ -1,5 +1,6 @@
 import data
 import matplotlib.pyplot as plt
+import numpy as np
 
 FIGURE_DIRECTORY = "./figures/"
 

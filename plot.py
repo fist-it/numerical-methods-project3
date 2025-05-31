@@ -1,7 +1,6 @@
 import matplotlib.pyplot as plt
 import numpy as np
 import data
-from data import DataType
 
 from pathlib import Path
 
@@ -9,16 +8,14 @@ PLOT_DIRECTORY = Path("plots/")
 
 
 def plot_everest():
-    coordinates: list[tuple(float)] = data.get_parsed_tuples(
-        DataType.EVEREST, convert=True
-    )
+    coordinates: list[tuple(float)] = data.get_parsed_tuples("EVEREST", convert=True)
 
     coordinates_step: list[tuple(float)] = data.get_parsed_tuples(
-        DataType.EVEREST, convert=True, step=2
+        "EVEREST", convert=True, step=2
     )
 
     coordinates_random_step: list[tuple(float)] = data.get_parsed_tuples(
-        DataType.EVEREST, convert=True, step=5, random_step=True
+        "EVEREST", convert=True, step=5, random_step=True
     )
     plt.figure(figsize=(10, 6))
     x = [coord[0] for coord in coordinates]

@@ -72,3 +72,14 @@ def get_parsed_tuples(
         df = df.iloc[::step, :]
 
     return list(zip(df.iloc[:, 0], df.iloc[:, 1])), x_max if convert else None
+
+
+def unparse_tuples(
+    tuples: list[tuple[float]], x_max: float = None
+) -> list[tuple[float]]:
+    """
+    Convert a list of tuples back from [0, 1] range to original scale if x_max is provided.
+    """
+    if x_max is not None:
+        return [(x * x_max, y) for x, y in tuples]
+    return tuples
