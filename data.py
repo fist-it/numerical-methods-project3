@@ -1,6 +1,13 @@
 import pandas as pd
-from enum import Enum
 import numpy as np
+
+
+def get_specific_data(path: str):
+    """
+    Reads a CSV file from the specified path and returns a DataFrame.
+    """
+    df = pd.read_csv(path, sep=",")
+    return df
 
 
 def get_canyon_data():
@@ -11,14 +18,17 @@ def get_canyon_data():
 
 
 def get_stable_data():
-    filename = "./data/SpacerniakGdansk.csv"
+    # filename = "./data/chelm.csv"
+    filename = "./data/ostrowa.csv"
     df = pd.read_csv(filename, sep=",")
 
     return df
 
 
 def get_unstable_data():
-    filename = "./data/rozne_wniesienia.csv"
+    # filename = "./data/Unsyncable_ride.csv"
+    # filename = "./data/rozne_wzniesienia.csv"
+    filename = "./data/SpacerniakGdansk.csv"
     df = pd.read_csv(filename, sep=",")
 
     return df
@@ -83,3 +93,43 @@ def unparse_tuples(
     if x_max is not None:
         return [(x * x_max, y) for x, y in tuples]
     return tuples
+
+
+def get_data_types() -> list[str]:
+    """
+    Returns a list of available data types.
+    """
+    return ["CANYON", "STABLE", "UNSTABLE", "EVEREST"]
+
+
+def plot_data(df, title: str):
+    """
+    Plots the given DataFrame with a specified title.
+    """
+    import matplotlib.pyplot as plt
+
+    plt.figure(figsize=(10, 6))
+    plt.plot(df.iloc[:, 0], df.iloc[:, 1], marker="o", linestyle="-", markersize=3)
+    plt.title(title)
+    plt.xlabel("X-axis")
+    plt.ylabel("Y-axis")
+    plt.grid()
+    plt.show()
+
+
+def main():
+    from pathlib import Path
+
+    data_directory = Path("./data/")
+    files = [f.name for f in data_directory.iterdir() if f.is_file()]
+    data_directory = "./data/"
+    for file in files:
+        print(f"Processing file: {file}")
+        df = get_specific_data(data_directory + file)
+        plot_data(df, f"Data from {file}")
+
+    return None
+
+
+if __name__ == "__main__":
+    main()

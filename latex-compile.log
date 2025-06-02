@@ -1,0 +1,123 @@
+pdflatex -output-directory="./sprawozdanie" ./sprawozdanie.tex
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2026/dev/Arch Linux) (preloaded format=pdflatex)
+ restricted \write18 enabled.
+entering extended mode
+(./sprawozdanie/./sprawozdanie.tex
+LaTeX2e <2024-11-01> patch level 2
+L3 programming layer <2025-01-18>
+(/usr/share/texmf-dist/tex/latex/base/article.cls
+Document Class: article 2024/06/29 v1.4n Standard LaTeX document class
+(/usr/share/texmf-dist/tex/latex/base/size12.clo))
+(/usr/share/texmf-dist/tex/latex/polski/polski.sty
+   Switching to Polish text encoding and Polish maths fonts.
+(/usr/share/texmf-dist/tex/latex/base/ot4enc.def)
+(/usr/share/texmf-dist/tex/latex/polski/ot4cmr.fd))
+(/usr/share/texmf-dist/tex/latex/base/inputenc.sty)
+(/usr/share/texmf-dist/tex/latex/amsmath/amsmath.sty
+For additional information on amsmath, use the `?' option.
+(/usr/share/texmf-dist/tex/latex/amsmath/amstext.sty
+(/usr/share/texmf-dist/tex/latex/amsmath/amsgen.sty))
+(/usr/share/texmf-dist/tex/latex/amsmath/amsbsy.sty)
+(/usr/share/texmf-dist/tex/latex/amsmath/amsopn.sty))
+(/usr/share/texmf-dist/tex/latex/amsfonts/amssymb.sty
+(/usr/share/texmf-dist/tex/latex/amsfonts/amsfonts.sty))
+(/usr/share/texmf-dist/tex/latex/float/float.sty)
+(/usr/share/texmf-dist/tex/latex/graphics/graphicx.sty
+(/usr/share/texmf-dist/tex/latex/graphics/keyval.sty)
+(/usr/share/texmf-dist/tex/latex/graphics/graphics.sty
+(/usr/share/texmf-dist/tex/latex/graphics/trig.sty)
+(/usr/share/texmf-dist/tex/latex/graphics-cfg/graphics.cfg)
+(/usr/share/texmf-dist/tex/latex/graphics-def/pdftex.def)))
+(/usr/share/texmf-dist/tex/latex/hyperref/hyperref.sty
+(/usr/share/texmf-dist/tex/generic/iftex/iftex.sty)
+(/usr/share/texmf-dist/tex/latex/kvsetkeys/kvsetkeys.sty)
+(/usr/share/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.sty)
+(/usr/share/texmf-dist/tex/generic/pdfescape/pdfescape.sty
+(/usr/share/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty)
+(/usr/share/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty
+(/usr/share/texmf-dist/tex/generic/infwarerr/infwarerr.sty)))
+(/usr/share/texmf-dist/tex/latex/hycolor/hycolor.sty)
+(/usr/share/texmf-dist/tex/latex/hyperref/nameref.sty
+(/usr/share/texmf-dist/tex/latex/refcount/refcount.sty)
+(/usr/share/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
+(/usr/share/texmf-dist/tex/latex/kvoptions/kvoptions.sty)))
+(/usr/share/texmf-dist/tex/latex/etoolbox/etoolbox.sty)
+(/usr/share/texmf-dist/tex/generic/stringenc/stringenc.sty)
+(/usr/share/texmf-dist/tex/latex/hyperref/pd1enc.def)
+(/usr/share/texmf-dist/tex/generic/intcalc/intcalc.sty)
+(/usr/share/texmf-dist/tex/latex/hyperref/puenc.def)
+(/usr/share/texmf-dist/tex/latex/url/url.sty)
+(/usr/share/texmf-dist/tex/generic/bitset/bitset.sty
+(/usr/share/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty))
+(/usr/share/texmf-dist/tex/latex/base/atbegshi-ltx.sty))
+(/usr/share/texmf-dist/tex/latex/hyperref/hpdftex.def
+(/usr/share/texmf-dist/tex/latex/base/atveryend-ltx.sty)
+(/usr/share/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
+(/usr/share/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty)))
+(/usr/share/texmf-dist/tex/latex/biblatex/biblatex.sty
+(/usr/share/texmf-dist/tex/latex/logreq/logreq.sty
+(/usr/share/texmf-dist/tex/latex/logreq/logreq.def))
+(/usr/share/texmf-dist/tex/latex/base/ifthen.sty)
+(/usr/share/texmf-dist/tex/latex/biblatex/blx-dm.def)
+(/usr/share/texmf-dist/tex/latex/biblatex/blx-compat.def)
+(/usr/share/texmf-dist/tex/latex/biblatex/biblatex.def)
+(/usr/share/texmf-dist/tex/latex/biblatex/bbx/numeric.bbx
+(/usr/share/texmf-dist/tex/latex/biblatex/bbx/standard.bbx))
+(/usr/share/texmf-dist/tex/latex/biblatex/cbx/numeric.cbx)
+(/usr/share/texmf-dist/tex/latex/biblatex/biblatex.cfg)
+(/usr/share/texmf-dist/tex/latex/l3kernel/expl3.sty
+(/usr/share/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def))
+(/usr/share/texmf-dist/tex/latex/biblatex/blx-case-expl3.sty
+(/usr/share/texmf-dist/tex/latex/l3packages/xparse/xparse.sty)))
+(./sprawozdanie/sprawozdanie.aux)
+(/usr/share/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+) (/usr/share/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
+(/usr/share/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg))
+(./sprawozdanie/sprawozdanie.out) (./sprawozdanie/sprawozdanie.out)
+(/usr/share/texmf-dist/tex/latex/biblatex/lbx/english.lbx)
+No file sprawozdanie.bbl.
+(/usr/share/texmf-dist/tex/latex/polski/omlplm.fd)
+(/usr/share/texmf-dist/tex/latex/polski/omsplsy.fd)
+(/usr/share/texmf-dist/tex/latex/polski/omxplex.fd)
+(/usr/share/texmf-dist/tex/latex/amsfonts/umsa.fd)
+(/usr/share/texmf-dist/tex/latex/amsfonts/umsb.fd)
+[1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}{/usr/share/texmf-dist/fon
+ts/enc/dvips/pl/plrm.enc}{/usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-sup
+er-ts1.enc}{/usr/share/texmf-dist/fonts/enc/dvips/pl/plmi.enc}{/usr/share/texmf
+-dist/fonts/enc/dvips/pl/plms.enc}]
+Overfull \hbox (15.07704pt too wide) in paragraph at lines 59--61
+\OT4/cmr/m/n/12 Dla zbio-ru $\OML/plm/m/it/12 n$ \OT4/cmr/m/n/12 punk-tów w¦-zª
+o-wych $(\OML/plm/m/it/12 x[]; y[]\OT4/cmr/m/n/12 )\OML/plm/m/it/12 ; \OT4/cmr/
+m/n/12 (\OML/plm/m/it/12 x[]; y[]\OT4/cmr/m/n/12 )\OML/plm/m/it/12 ; [] ; \OT4/
+cmr/m/n/12 (\OML/plm/m/it/12 x[]; y[]\OT4/cmr/m/n/12 )$, gdzie wszyst-
+
+[2{/usr/share/texmf-dist/fonts/enc/dvips/pl/plme.enc}]
+[3]
+[4 <./plots/Lagrange_EVEREST_group_1.png>]
+(/usr/share/texmf-dist/tex/latex/polski/ot4cmtt.fd)
+Underfull \hbox (badness 7907) in paragraph at lines 171--172
+[]\OT4/cmr/m/n/12 Wolfram Ma-th-World (2025) \OT4/cmr/m/it/12 Cu-bic Spli-ne\OT
+4/cmr/m/n/12 , []$\OT4/cmtt/m/n/12 https : / / mathworld .
+
+Underfull \hbox (badness 2343) in paragraph at lines 173--175
+[]\OT4/cmr/m/n/12 Wolfram Ma-th-World \OT4/cmr/m/it/12 La-gran-ge In-ter-po-la-
+ting Po-ly-no-mial\OT4/cmr/m/n/12 , []$\OT4/cmtt/m/n/12 https : / /
+
+LaTeX Warning: Empty bibliography on input line 177.
+
+
+[5{/usr/share/texmf-dist/fonts/enc/dvips/pl/plit.enc}{/usr/share/texmf-dist/fon
+ts/enc/dvips/pl/pltt.enc}] (./sprawozdanie/sprawozdanie.aux) )
+(see the transcript file for additional information)</usr/share/texmf-dist/font
+s/type1/public/pl/plbx12.pfb></usr/share/texmf-dist/fonts/type1/public/pl/plex1
+0.pfb></usr/share/texmf-dist/fonts/type1/public/pl/plmi12.pfb></usr/share/texmf
+-dist/fonts/type1/public/pl/plmi8.pfb></usr/share/texmf-dist/fonts/type1/public
+/pl/plr12.pfb></usr/share/texmf-dist/fonts/type1/public/pl/plr17.pfb></usr/shar
+e/texmf-dist/fonts/type1/public/pl/plr8.pfb></usr/share/texmf-dist/fonts/type1/
+public/pl/plsy10.pfb></usr/share/texmf-dist/fonts/type1/public/pl/plsy8.pfb></u
+sr/share/texmf-dist/fonts/type1/public/pl/plti12.pfb></usr/share/texmf-dist/fon
+ts/type1/public/pl/pltt12.pfb></usr/share/texmf-dist/fonts/type1/public/cm-supe
+r/sfrm1200.pfb>
+Output written on ./sprawozdanie/sprawozdanie.pdf (5 pages, 558865 bytes).
+Transcript written on ./sprawozdanie/sprawozdanie.log.

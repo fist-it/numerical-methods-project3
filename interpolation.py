@@ -4,7 +4,12 @@ import matplotlib.pyplot as plt
 from plot import save_plot
 
 
-def lagrange_interpolate(data: list[tuple[float, float]], x: np.ndarray) -> np.ndarray:
+def lagrange_interpolate(
+    data: list[tuple[float, float]],
+    x: np.ndarray,
+    clip_min: int = 0,
+    clip_max: int = 10000,
+) -> np.ndarray:
     """
     Perform Lagrange interpolation on the given data points.
 
@@ -27,12 +32,10 @@ def lagrange_interpolate(data: list[tuple[float, float]], x: np.ndarray) -> np.n
                 li *= (x - x_data[j]) / (xi - x_data[j])
         result += y_data[i] * li
 
-    np.clip(result, 0, None, out=result)  # Ensure non-negative values
-    np.clip(result, None, 10000, out=result)
+    np.clip(result, clip_min, clip_max, out=result)  # Ensure non-negative values
     return result
 
 
-# TODO: Implement third-order spline interpolation
 def third_order_spline_interpolate(
     data: list[tuple[float, float]], x: np.ndarray
 ) -> np.ndarray:
@@ -47,50 +50,56 @@ def third_order_spline_interpolate(
     x_data = np.array([p[0] for p in data])
     y_data = np.array([p[1] for p in data])
 
-    n = len(data)
-    A = np.zeros((n, n))
-    d = np.zeros(n)
-    if n < 4:
-        raise ValueError(
-            "At least 4 data points are required for third-order spline interpolation."
+    n = len(data) - 1
+    A = np.zeros((4 * n, 4 * n), dtype=np.float64)
+    b = np.zeros(4 * n, dtype=np.float64)
+    b[::4] = y_data[:-1]
+    b[1::4] = y_data[1:]
+
+    for i in range(0, n):
+        h = x_data[i + 1] - x_data[i]
+        A[4 * i, 4 * i] = 1  # a_i
+
+        A[4 * i + 1, 4 * i + 0] = h**0
+        A[4 * i + 1, 4 * i + 1] = h**1
+        A[4 * i + 1, 4 * i + 2] = h**2
+        A[4 * i + 1, 4 * i + 3] = h**3
+
+        if i < n - 1:
+            A[4 * i + 2, 4 * i + 1] = 1
+            A[4 * i + 2, 4 * i + 2] = 2 * h
+            A[4 * i + 2, 4 * i + 3] = 3 * h**2
+            A[4 * i + 2, 4 * i + 5] = -1
+
+            A[4 * i + 3, 4 * i + 2] = 2
+            A[4 * i + 3, 4 * i + 3] = 6 * h
+            A[4 * i + 3, 4 * i + 6] = -2
+
+    A[-2, 2] = 1  # Set the last point's derivative to 0
+    A[-1, -2] = 2
+    A[-1, -1] = 6 * (
+        x_data[-1] - x_data[-2]
+    )  # Set the last point's second derivative to 0
+
+    coeffs = np.linalg.solve(A, b).flatten()
+    coeffs_n = 0
+    result = np.zeros_like(x, dtype=float)
+
+    for i, point in enumerate(x):
+        while coeffs_n < len(x_data) - 2 and not (
+            x_data[coeffs_n] <= point <= x_data[coeffs_n + 1]
+        ):
+            coeffs_n += 1
+
+        h = point - x_data[coeffs_n]
+        result[i] = (
+            coeffs[4 * coeffs_n]
+            + coeffs[4 * coeffs_n + 1] * h
+            + coeffs[4 * coeffs_n + 2] * h**2
+            + coeffs[4 * coeffs_n + 3] * h**3
         )
-    n = n - 1
-    h = np.diff(x_data)
-    y = [y_data[i + 1] - y_data[i] / h[i] for i in range(n)]
 
-    A[0, 0] = 1
-    A[n, n] = 1
-
-    for i in range(1, n):
-        A[i, i - 1] = h[i - 1]
-        A[i, i] = 2 * (h[i - 1] + h[i])
-        A[i, i + 1] = h[i]
-        d[i] = 3 * (y[i] - y[i - 1])
-
-    c = np.linalg.solve(A, d)
-    a = y_data[:-1]
-    b = [(y_data[i + 1] - h[i] * (2 * c[i] + c[i + 1])) / 3 for i in range(n)]
-    d = [(c[i + 1] - c[i]) / (3 * h[i]) for i in range(n)]
-    c = c[:-1]
-
-    x_new = []
-    y_new = []
-    for i in range(n):
-        x_segment = np.linspace(x_data[i], x_data[i + 1], 100)
-        y_segment = (
-            a[i]
-            + b[i] * (x_segment - x_data[i])
-            + c[i] * (x_segment - x_data[i]) ** 2
-            + d[i] * (x_segment - x_data[i]) ** 3
-        )
-        x_new.extend(x_segment)
-        y_new.extend(y_segment)
-
-    x_new = np.array(x_new)
-    y_new = np.array(y_new)
-    np.clip(y_new, 0, None, out=y_new)  # Ensure non-negative values
-    np.clip(y_new, None, 10000, out=y_new)  # Ensure y values are within bounds
-    return y_new
+    return result
 
 
 def test_lagrange():
@@ -132,10 +141,8 @@ def test_lagrange():
 
 
 def test_third_order_spline():
-    data, x_max = get_parsed_tuples("EVEREST", convert=True, step=20, random_step=False)
-    real_data, _ = get_parsed_tuples(
-        "EVEREST", convert=False, step=1, random_step=False
-    )
+    data, x_max = get_parsed_tuples("CANYON", convert=True, step=20, random_step=False)
+    real_data, _ = get_parsed_tuples("CANYON", convert=False, step=1, random_step=False)
     x = np.linspace(0.0, 1.0, 100)
     y = third_order_spline_interpolate(data, x)
     x = x * x_max  # Scale x to the original range
@@ -161,8 +168,17 @@ def test_third_order_spline():
     plt.ylabel("Y")
     plt.legend()
     plt.grid()
-    save_plot(f"third_order_spline_interpolation_everest.png")
+    # save_plot(f"third_order_spline_interpolation_everest.png")
     plt.show()
+    plt.close()
+
+
+def get_interpolation_types() -> list[str]:
+    """
+    Get the list of available interpolation types.
+    """
+    return ["Lagrange", "Spline"]
+    # return ["Spline"]
 
 
 def main():
