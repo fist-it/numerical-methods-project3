@@ -8,7 +8,7 @@ from interpolation import (
 )
 from plot import save_plot
 
-POINTS_COUNT = [4, 8, 16, 32, 64, 128, 256]
+POINTS_COUNT = [2, 4, 8, 16, 32, 64, 128, 256]
 
 
 def demonstrate_interpolation(
@@ -22,7 +22,7 @@ def demonstrate_interpolation(
     # trim the everest_data to only include the x's in x_indices
     chosen_points = [current_data[i] for i in x_indices]
 
-    temp_data, _ = data.get_parsed_tuples("EVEREST", True)
+    temp_data, _ = data.get_parsed_tuples(data_type, True)
     x = [i[0] for i in temp_data]
     if interpolation_type == "Lagrange":
         y = lagrange_interpolate(chosen_points, x)
@@ -90,6 +90,7 @@ def main():
                 fig.tight_layout()
                 save_plot(f"{interpolation_type}_{data_type}_group_{i // 4 + 1}.png")
                 plt.close(fig)  # free memory between plots
+
     return None
 
 

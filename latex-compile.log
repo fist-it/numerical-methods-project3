@@ -86,7 +86,7 @@ No file sprawozdanie.bbl.
 ts/enc/dvips/pl/plrm.enc}{/usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-sup
 er-ts1.enc}{/usr/share/texmf-dist/fonts/enc/dvips/pl/plmi.enc}{/usr/share/texmf
 -dist/fonts/enc/dvips/pl/plms.enc}]
-Overfull \hbox (15.07704pt too wide) in paragraph at lines 59--61
+Overfull \hbox (15.07704pt too wide) in paragraph at lines 62--64
 \OT4/cmr/m/n/12 Dla zbio-ru $\OML/plm/m/it/12 n$ \OT4/cmr/m/n/12 punk-tów w¦-zª
 o-wych $(\OML/plm/m/it/12 x[]; y[]\OT4/cmr/m/n/12 )\OML/plm/m/it/12 ; \OT4/cmr/
 m/n/12 (\OML/plm/m/it/12 x[]; y[]\OT4/cmr/m/n/12 )\OML/plm/m/it/12 ; [] ; \OT4/
@@ -94,30 +94,12 @@ cmr/m/n/12 (\OML/plm/m/it/12 x[]; y[]\OT4/cmr/m/n/12 )$, gdzie wszyst-
 
 [2{/usr/share/texmf-dist/fonts/enc/dvips/pl/plme.enc}]
 [3]
-[4 <./plots/Lagrange_EVEREST_group_1.png>]
-(/usr/share/texmf-dist/tex/latex/polski/ot4cmtt.fd)
-Underfull \hbox (badness 7907) in paragraph at lines 171--172
-[]\OT4/cmr/m/n/12 Wolfram Ma-th-World (2025) \OT4/cmr/m/it/12 Cu-bic Spli-ne\OT
-4/cmr/m/n/12 , []$\OT4/cmtt/m/n/12 https : / / mathworld .
+[4]
+[5 <./plots/Lagrange_EVEREST_group_1.png>]
+! Interruption.
+<argument> ...\__shipout_drop_firstpage_specials: 
+                                                  \set@typeset@protect \hook...
+l.187 W
+        przypadku gÄ™stych punktÃ³w wÄ™zÅ‚owych (32, 64, 128, 256) efekt Run...
 
-Underfull \hbox (badness 2343) in paragraph at lines 173--175
-[]\OT4/cmr/m/n/12 Wolfram Ma-th-World \OT4/cmr/m/it/12 La-gran-ge In-ter-po-la-
-ting Po-ly-no-mial\OT4/cmr/m/n/12 , []$\OT4/cmtt/m/n/12 https : / /
-
-LaTeX Warning: Empty bibliography on input line 177.
-
-
-[5{/usr/share/texmf-dist/fonts/enc/dvips/pl/plit.enc}{/usr/share/texmf-dist/fon
-ts/enc/dvips/pl/pltt.enc}] (./sprawozdanie/sprawozdanie.aux) )
-(see the transcript file for additional information)</usr/share/texmf-dist/font
-s/type1/public/pl/plbx12.pfb></usr/share/texmf-dist/fonts/type1/public/pl/plex1
-0.pfb></usr/share/texmf-dist/fonts/type1/public/pl/plmi12.pfb></usr/share/texmf
--dist/fonts/type1/public/pl/plmi8.pfb></usr/share/texmf-dist/fonts/type1/public
-/pl/plr12.pfb></usr/share/texmf-dist/fonts/type1/public/pl/plr17.pfb></usr/shar
-e/texmf-dist/fonts/type1/public/pl/plr8.pfb></usr/share/texmf-dist/fonts/type1/
-public/pl/plsy10.pfb></usr/share/texmf-dist/fonts/type1/public/pl/plsy8.pfb></u
-sr/share/texmf-dist/fonts/type1/public/pl/plti12.pfb></usr/share/texmf-dist/fon
-ts/type1/public/pl/pltt12.pfb></usr/share/texmf-dist/fonts/type1/public/cm-supe
-r/sfrm1200.pfb>
-Output written on ./sprawozdanie/sprawozdanie.pdf (5 pages, 558865 bytes).
-Transcript written on ./sprawozdanie/sprawozdanie.log.
+? make: *** [makefile:2: latex-compile] Terminated
